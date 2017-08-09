@@ -1,9 +1,3 @@
-/node_modules/
-.happypack
-.vscode/
-node_modules/
-images/
-.lib_cache/
 
 *.orig
 
