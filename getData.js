@@ -7,6 +7,7 @@ var cookieSetter = require("./cookieSetter.js");
 var fs = require("fs");
 
 function getData(dcity) {
+
     let cookie = '15dc13da7c11-0ad3bd714002a7-30667808-1fa400-15dc13da7c2304;';
     var method = 'GETDATA';
     var object = {};
