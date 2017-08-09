@@ -2,6 +2,11 @@
 <p>定时从<a href="https://www.aqistudy.cn/">aqistudy</a>抓取空气质量数据</p>
 <p>造福大气科研工作者[并不简单]</p>
 
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)]()
+[![node](https://img.shields.io/badge/npm-3.10.8-blue.svg)]()
+[![nodejs](https://img.shields.io/badge/nodejs-v6.9.1-orange.svg)]()
+
+
 ### 文件目录
 
 <pre>
