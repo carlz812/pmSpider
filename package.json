@@ -1,0 +1,29 @@
+{
+  "name": "pmSpider",
+  "version": "1.0.0",
+  "description": "get data from aqistudy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "carlzz",
+  "license": "MIT",
+  "dependencies": {
+    "2": "^1.0.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.3",
+    "follow-redirects": "^1.2.4",
+    "mongodb": "^2.2.30",
+    "mongoskin": "^2.1.0",
+    "node-schedule": "^1.2.3",
+    "node-xlsx": "^0.7.4",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0",
+    "superagent": "^3.5.2",
+    "superagent-charset": "^1.2.0",
+    "superagent-retry": "^0.6.0"
+  }
+}
