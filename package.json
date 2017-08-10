@@ -25,5 +25,8 @@
     "superagent": "^3.5.2",
     "superagent-charset": "^1.2.0",
     "superagent-retry": "^0.6.0"
+  },
+  "scripts": {
+    "test": "jasmine"
   }
 }
