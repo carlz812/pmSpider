@@ -13,7 +13,7 @@ var $CONFIG = {
  */
 function startSchedule() {
     var rule = new schedule.RecurrenceRule();
-    var times = ['5'];
+    var times = ['3'];
     rule.minute = times;
     var j = schedule.scheduleJob(rule, function () {
         startCollectAll();
