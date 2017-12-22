@@ -1,11 +1,11 @@
 /**
  * Created by yuancheng.yuan on 2017/8/8.
  */
-var schedule = require("node-schedule");
-var getCityList = require("./citys/getCityList.js");
-var getData = require("./getData/getData.js");
-var databaseUtil = require("./dbHandler/databaseUtil.js");
-var $CONFIG = {
+const schedule = require("node-schedule");
+const getCityList = require("./citys/getCityList.js");
+const getData = require("./getData/getData.js");
+const databaseUtil = require("./dbHandler/databaseUtil.js");
+let $CONFIG = {
     count: 0
 };
 
@@ -13,12 +13,12 @@ var $CONFIG = {
  * 每小时进行一次
  */
 function startSchedule() {
-    var rule = new schedule.RecurrenceRule();
-    var times = ['3', '12', '13','51'];
+    let rule = new schedule.RecurrenceRule();
+    let times = ['3', '12', '13','51'];
     rule.minute = times;
 
     startCollectAll();
-    /*var j = schedule.scheduleJob(rule, function () {
+    /*let j = schedule.scheduleJob(rule, function () {
         startCollectAll();
     });*/
 }

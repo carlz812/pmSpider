@@ -1,21 +1,21 @@
 /**
  * Created by yuancheng.yuan on 2017/8/8.
  */
-var $CONFIG = require('./DB_CONFIG');
-var MongoClient = require('mongodb').MongoClient,
+const $CONFIG = require('./DB_CONFIG');
+const MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
 function saveData(data) {
-    MongoClient.connect($CONFIG.URL, function (err, db) {
+    MongoClient.connect($CONFIG.URL, (err, db) => {
         assert.equal(null, err);
         console.log(data[0].cityname);
-        insertData(db, function () {
+        insertData(db, () => {
             db.close();
         })
     });
-    var insertData = function (db, callback) {
-        var collection = db.collection($CONFIG.COLLECTION);
-        collection.insert(data, function (err, result) {
+    let insertData = (db, callback) => {
+        let collection = db.collection($CONFIG.COLLECTION);
+        collection.insert(data, (err, result) => {
             if (err) {
                 console.log('Error:' + err);
                 return;
@@ -26,17 +26,17 @@ function saveData(data) {
 }
 
 function selectData(rule, callback) {
-    MongoClient.connect($CONFIG.URL, function (err, db) {
-        mongoQuery(db, function (result) {
+    MongoClient.connect($CONFIG.URL, (err, db) => {
+        mongoQuery(db, (result) => {
             callback && callback(result);
             db.close();
         });
     });
-    var mongoQuery = function (db, cb) {
+    let mongoQuery = function (db, cb) {
         //连接到表
         let collection = db.collection($CONFIG.COLLECTION);
         //查询数据
-        collection.find(rule).toArray(function (err, result) {
+        collection.find(rule).toArray((err, result) => {
             if (err) {
                 console.log('Error:' + err);
                 return;

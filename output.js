@@ -1,6 +1,6 @@
-var databaseUtil = require("./dbHandler/databaseUtil.js");
-var rule = require('./citys/outputRule');
-var XLSX = require('xlsx');
+const databaseUtil = require("./dbHandler/databaseUtil.js");
+const rule = require('./citys/outputRule');
+const XLSX = require('xlsx');
 
 function values(obj) {
     let res = [];
@@ -11,14 +11,14 @@ function values(obj) {
 }
 
 databaseUtil.selectData(rule, (result) => {
-    var sheets = XLSX.utils.json_to_sheet(result);
-    var workbook = {
+    let sheets = XLSX.utils.json_to_sheet(result);
+    let workbook = {
         SheetNames: ['sheet1'],
         Sheets: {
             'sheet1': sheets
         }
     };
-    var path = './output/';
-    var filename = values(rule).join('_') + '.xlsx';
+    let path = './output/';
+    let filename = values(rule).join('_') + '.xlsx';
     XLSX.writeFile(workbook, path + filename);
 });
