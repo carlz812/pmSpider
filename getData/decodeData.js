@@ -1971,6 +1971,4 @@ function getServerData(method, object, cookie, callback, period) {
     }).catch()
 }
 
-module.exports = {
-    getServerData: getServerData
-}
+module.exports = decodeData;

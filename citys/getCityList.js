@@ -3,8 +3,8 @@
  */
 var fs = require('fs');
 function getCityList() {
-    var promise = new Promise((resolve, reject)=> {
-        fs.readFile('./raw.txt', 'utf-8', function (err, data) {
+    return new Promise((resolve, reject)=> {
+        fs.readFile('./citys/getCityList.txt', 'utf-8', function (err, data) {
             if (err) {
                 reject(err);
             } else {
@@ -12,7 +12,6 @@ function getCityList() {
                 resolve(result);
             }
         });
-    })
-    return promise;
+    });
 }
 module.exports = getCityList;

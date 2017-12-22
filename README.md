@@ -15,10 +15,10 @@
 |---cookieSetter.js
 |---databaseUtil.js
 |---getData.js
-|---getServerData.js
+|---decodeData.js
 |---index.js
 |---package.json
-|---raw.js
+|---getCityList.js
 |---raw.txt
 |---sendPost.js
 </pre>
@@ -29,15 +29,15 @@
 启动入口文件，开启定时任务，每小时抓取一次，并输出相关信息
 
 #### `getData.js`
-通过对网站进行分析，设置cookie，绑定城市信息，调起  `getServerData.js` 
+通过对网站进行分析，设置cookie，绑定城市信息，调起  `decodeData.js` 
 
-#### `getServerData.js`
+#### `decodeData.js`
 对请求参数进行加密，对返回参数进行解密，得到`json`数据串
 
 #### `databaseUtil.js`
 将获取到的数据保存到`mongodb`中，方便后续处理
 
-#### `raw.js&&raw.txt`
+#### `getCityList.js&&raw.txt`
 将需要拉取的城市整理为一个数组，在启动时调用
 
 #### `cookieSetter.js`
