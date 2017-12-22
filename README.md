@@ -10,17 +10,21 @@
 ### 文件目录
 
 <pre>
+|---citys
 |---common
 |-----userAgents.json
-|---cookieSetter.js
-|---databaseUtil.js
-|---getData.js
-|---decodeData.js
+|-----cookieSetter.js
+|---dbHandler
+|-----databaseUtil.js
+|-----DB_CONFIG.js
+|---getData
+|-----decodeData.js
+|-----getData.js
+|-----sendPost.js
+|---output
 |---index.js
+|---output.js
 |---package.json
-|---getCityList.js
-|---raw.txt
-|---sendPost.js
 </pre>
 
 ### 文件功能介绍
@@ -47,11 +51,14 @@
 防止爬虫被墙，储备的`userAgent`
 但是目前没有发现该网站有对`ua`进行识别，后期可做成定期更换
 
+#### `output.js`&&`outputRule.js`
+将保存在数据库中的数据保存为Excel文件
+`outputRule.js` 中为提取数据的限制条件，需要按照给出的 `key` 格式书写 
 
 ## TODOS
 <ul>
   <li>增加容错机制，在遇到异常时保证程序可以自动选择解决方案</li>
-  <li>对保存在数据库中的数据进行定时处理，输出为excel文件</li>
+  <li>优化代码配置</li>
   <li>通过echart等工具，将数据可视化</li>
 </ul>
 
