@@ -18,7 +18,7 @@
 |-----databaseUtil.js
 |-----DB_CONFIG.js
 |---getData
-|-----decodeData.js
+|-----getServerData.js
 |-----getData.js
 |-----sendPost.js
 |---output
@@ -33,9 +33,9 @@
 启动入口文件，开启定时任务，每小时抓取一次，并输出相关信息
 
 #### `getData.js`
-通过对网站进行分析，设置cookie，绑定城市信息，调起  `decodeData.js` 
+通过对网站进行分析，设置cookie，绑定城市信息，调起  `getServerData.js` 
 
-#### `decodeData.js`
+#### `getServerData.js`
 对请求参数进行加密，对返回参数进行解密，得到`json`数据串
 
 #### `databaseUtil.js`
