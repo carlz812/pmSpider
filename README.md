@@ -13,7 +13,7 @@
 |---citys
 |---common
 |-----userAgents.json
-|-----cookieSetter.js
+|-----updateCookie.js
 |---dbHandler
 |-----databaseUtil.js
 |-----DB_CONFIG.js
@@ -44,7 +44,7 @@
 #### `getCityList.js&&raw.txt`
 将需要拉取的城市整理为一个数组，在启动时调用
 
-#### `cookieSetter.js`
+#### `updateCookie.js`
 网站`cookie`的生成器，避免`cookie`过期失效，可以设置为定期更新
 
 #### `userAgents.json`

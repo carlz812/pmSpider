@@ -34,7 +34,7 @@ var fa = function () {
         return b() + "-" + Math.random().toString(16).replace(".",
                 "") + "-" + a() + "-" + c + "-" + b()
     }
-}()
+}();
 
 function updateCookie() {
     var c = fa(), d = new Date;
@@ -42,6 +42,5 @@ function updateCookie() {
     var e = 'www.aqistudy.cn'.match(/[a-z0-9][a-z0-9\-]+\.[a-z\.]{2,6}$/i);
     return ba('UM_distinctid', c, d, "/", e ? e[0] : "");
 }
-
 
 module.exports = updateCookie;

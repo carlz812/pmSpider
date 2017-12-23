@@ -1966,9 +1966,11 @@ function getServerData(method, object, cookie, callback, period) {
         if (obj.success) {
             callback(obj.result)
         } else {
-            console.log(JSON.stringify(obj));
+            console.log('sendPost',JSON.stringify(obj))
         }
-    }).catch()
+    }).catch((err)=>{
+        console.log('getServerData',err)
+    })
 }
 
 module.exports = decodeData;

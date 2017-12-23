@@ -14,13 +14,11 @@ let $CONFIG = {
  */
 function startSchedule() {
     let rule = new schedule.RecurrenceRule();
-    let times = ['3', '12', '13','51'];
-    rule.minute = times;
-
-    startCollectAll();
-    /*let j = schedule.scheduleJob(rule, function () {
+    let times = ['1'];
+    rule.second = times;
+    let j = schedule.scheduleJob(rule, function () {
         startCollectAll();
-    });*/
+    });
 }
 
 /**
@@ -32,7 +30,7 @@ function startCollectAll() {
     temp.forEach((city, index) => {
         setTimeout(() => {
             startCollectOne(city);
-        }, index * 2000);
+        }, index * 300);
     })
 }
 
