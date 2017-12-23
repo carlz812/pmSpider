@@ -1936,38 +1936,6 @@ var AES = {
         return result.toString(CryptoJS.enc.Utf8)
     }
 };
-var localStorageUtil = {
-    save: function (name, value) {
-        var text = JSON.stringify(value);
-        text = BASE64.encrypt(text);
-        text = AES.encrypt(text, aes_local_key, aes_local_iv);
-        try {
-            localStorage.setItem(name, text)
-        } catch (oException) {
-            if (oException.name === 'QuotaExceededError') {
-                console.log('超出本地存储限额！');
-                localStorage.clear();
-                localStorage.setItem(name, text)
-            }
-        }
-    },
-    check: function (name) {
-        return localStorage.getItem(name)
-    },
-    getValue: function (name) {
-        var text = localStorage.getItem(name);
-        var result = null;
-        if (text) {
-            text = AES.decrypt(text, aes_local_key, aes_local_iv);
-            text = BASE64.decrypt(text);
-            result = JSON.parse(text)
-        }
-        return result
-    },
-    remove: function (name) {
-        localStorage.removeItem(name)
-    }
-};
 
 function ObjectSort(obj) {
     var newObject = {};

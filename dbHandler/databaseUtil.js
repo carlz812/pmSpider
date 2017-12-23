@@ -17,8 +17,7 @@ function saveData(data) {
         let collection = db.collection($CONFIG.COLLECTION);
         collection.insert(data, (err, result) => {
             if (err) {
-                console.log('Error:' + err);
-                return;
+                throw Error('Error:' + err);
             }
             callback(result);
         });

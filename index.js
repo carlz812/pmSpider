@@ -14,8 +14,8 @@ let $CONFIG = {
  */
 function startSchedule() {
     let rule = new schedule.RecurrenceRule();
-    let times = ['10','30','50'];
-    rule.second = times;
+    let times = ['10'];
+    rule.minute = times;
     let j = schedule.scheduleJob(rule, function () {
         startCollectAll();
     });
@@ -30,7 +30,7 @@ function startCollectAll() {
     temp.forEach((city, index) => {
         setTimeout(() => {
             startCollectOne(city);
-        }, index * 200);
+        }, index * 1000);
     })
 }
 
