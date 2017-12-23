@@ -5,8 +5,11 @@ const schedule = require("node-schedule");
 const getCityList = require("./citys/getCityList.js");
 const getData = require("./getData/getData.js");
 const databaseUtil = require("./dbHandler/databaseUtil.js");
+
 let $CONFIG = {
-    count: 0
+    count: 0,
+    rule: ['minute', ['6']],//规定每小时的第几分钟开始运行
+    period: 2000
 };
 
 /**
@@ -14,8 +17,7 @@ let $CONFIG = {
  */
 function startSchedule() {
     let rule = new schedule.RecurrenceRule();
-    let times = ['10'];
-    rule.minute = times;
+    rule[$CONFIG.rule[0]] = $CONFIG.rule[1];
     let j = schedule.scheduleJob(rule, function () {
         startCollectAll();
     });
@@ -30,12 +32,11 @@ function startCollectAll() {
     temp.forEach((city, index) => {
         setTimeout(() => {
             startCollectOne(city);
-        }, index * 1000);
+        }, index * $CONFIG.period);
     })
 }
 
 function startCollectOne(city) {
-    console.log("开始保存*****" + city + "*****的数据");
     getData(city).then((data) => {
         databaseUtil.saveData(data);
     });
@@ -44,7 +45,6 @@ function startCollectOne(city) {
 function init() {
     getCityList().then((city) => {
         $CONFIG.CITYS = city;
-        console.log("总计*****" + $CONFIG.CITYS.length + "*****个城市");
         startSchedule();
     }).catch((res) => {
         console.log(JSON.stringify(res));

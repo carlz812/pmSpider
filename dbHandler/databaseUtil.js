@@ -8,9 +8,9 @@ const MongoClient = require('mongodb').MongoClient,
 function saveData(data) {
     MongoClient.connect($CONFIG.URL, (err, db) => {
         assert.equal(null, err);
-        console.log(data[0].cityname);
         insertData(db, () => {
             db.close();
+            console.log(`${data[0].cityname} saved`);
         })
     });
     let insertData = (db, callback) => {
