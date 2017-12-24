@@ -18,6 +18,7 @@ let $CONFIG = {
 function startSchedule() {
     let rule = new schedule.RecurrenceRule();
     rule[$CONFIG.rule[0]] = $CONFIG.rule[1];
+    console.log('start');
     let j = schedule.scheduleJob(rule, function () {
         startCollectAll();
     });
